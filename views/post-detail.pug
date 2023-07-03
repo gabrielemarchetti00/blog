@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    h1 Post: #{post.title}
+    br
+    p #[strong Text:] #{post.text}
+    p #[strong Timestamp:] #{post.timestamp}
+    p #[strong Author] #{post.author}
+
+    hr
+    if (currentUser.status == "writer")
+        p
+            a(href=post.url+'/delete') Delete post
+        p
+            a(href=post.url+'/update') Update post
+    else 
+        p
+            a(href=post.url+'/add-comment') Add comment       

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    if user 
+        h1 Welcome back #{user.username}
+        a(href="/log-out") Log out
+        if (currentUser.status == "writer")
+            br
+            a(href="/new-post") Create new post
+        br
+        a(href="/posts") View all posts
+    else
+        h1 Log in 
+        form(method='POST' action='/log-in')
+            div.form-group
+                label(for='username') Username:
+                input#username.form-control(type='text', placeholder='mrMario00' name='username' required='true' value=(undefined===user? '' : user.username))
+            div.form-group
+                label(for='password') Password:
+                input#password.form-control(type='password', placeholder='mario26!' name='password' required='true')
+            button.btn.btn-primary(type='submit') Log in
+        a(href="/sign-up") Sign up
