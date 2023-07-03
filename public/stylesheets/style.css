@@ -1,8 +1,66 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  margin: 0px;
+  background-color: #fef08a;
 }
 
-a {
-  color: #00B7FF;
+/*login page, signup page*/
+.login-body,
+.signup-body{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.login-content,
+.signup-content{
+  height: 500px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-title,
+.signup-title{
+  font-size: 80px;
+}
+
+.login-form,
+.signup-form{
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 30px;
+}
+
+button{
+  grid-column: 2/3;
+  width: 50%;
+  height: 50px;
+  font-size: 25px;
+}
+
+input{
+  font-size: 20px;
+}
+
+a{
+  font-size: 20px;
+}
+
+select{
+  font-size: 20px;
+}
+
+/*homepage*/
+.home-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fde047;
+}
+
+

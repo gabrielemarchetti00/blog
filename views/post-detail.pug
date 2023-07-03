@@ -8,6 +8,13 @@ block content
     p #[strong Timestamp:] #{post.timestamp}
     p #[strong Author] #{post.author}
 
+    h4 Comments
+    ul
+      each comment in post_comments
+        li #{comment.text}
+      else
+        p This post has no comments
+
     hr
     if (currentUser.status == "writer")
         p
@@ -16,4 +23,6 @@ block content
             a(href=post.url+'/update') Update post
     else 
         p
-            a(href=post.url+'/add-comment') Add comment       
+            a(href=post.url+'/add-comment') Add comment 
+
+    a(href="/") Home   

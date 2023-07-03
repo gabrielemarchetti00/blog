@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const Comment = require("../models/comment")
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
@@ -43,7 +44,10 @@ exports.create_post_post = [
 ]
 
 exports.post_detail = asyncHandler(async(req, res, next) => {
-    const post = await Post.findById(req.params.id).exec()
+    const [post, commentsOfPost] = await Promise.all([
+      Post.findById(req.params.id).exec(),
+      Comment.find( {post: req.params.id}, "text").exec()
+    ])
 
     if(post === null) {
         const err = new Error("post not found")
@@ -54,6 +58,7 @@ exports.post_detail = asyncHandler(async(req, res, next) => {
     res.render("post-detail", {
         title: "Post Detail",
         post: post,
+        post_comments: commentsOfPost
     })
 })
 
