@@ -2,13 +2,17 @@ extends layout
 
 block content
     if user 
-        div.home-content
-            div.home-header
-                h1 Welcome back: #{user.username}
-                a(href="/posts") View all posts
-                if (currentUser.status == "writer")
-                    a(href="/new-post") Create new post
-                a(href="/log-out") Log out
+        div.home-body
+            div.home-content
+                h1(class="welcome-title") Welcome back: #{user.username}
+                div.home-buttons
+                    a(href="/posts") 
+                        button View all posts
+                    if (currentUser.status == "writer")
+                        a(href="/new-post") 
+                            button Create new post
+                    a(href="/log-out")
+                        button Log out
     else
         div.login-body
             div.login-content

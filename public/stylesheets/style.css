@@ -3,6 +3,16 @@ body{
   background-color: #fef08a;
 }
 
+button{
+  background-color: #fcd34d;
+  border: none;
+}
+
+button:hover{
+  cursor: pointer;
+  border: 5px solid #f59e0b;
+}
+
 /*login page, signup page*/
 .login-body,
 .signup-body{
@@ -56,11 +66,31 @@ select{
 }
 
 /*homepage*/
-.home-header{
+.home-body{
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  background-color: #fde047;
+  height: 60vh;
+}
+
+.home-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-title{
+  font-size: 60px;
+}
+
+.home-content button{
+  width: 150px;
+  height: 80px;
+}
+
+.home-buttons{
+  display: flex;
+  gap: 20px;
 }
 
 
