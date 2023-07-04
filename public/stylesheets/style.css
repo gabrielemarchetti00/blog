@@ -4,13 +4,13 @@ body{
 }
 
 button{
-  background-color: #fcd34d;
+  background-color: #f59e0b;
   border: none;
 }
 
 button:hover{
   cursor: pointer;
-  border: 5px solid #f59e0b;
+  border: 5px solid #f97316;
 }
 
 /*login page, signup page*/
@@ -66,31 +66,49 @@ select{
 }
 
 /*homepage*/
-.home-body{
+.home-header{
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 60vh;
-}
-
-.home-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #fde047;
 }
 
 .welcome-title{
   font-size: 60px;
 }
 
-.home-content button{
+.home-buttons button{
   width: 150px;
   height: 80px;
 }
 
+.post-div a{
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .home-buttons{
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
+.post-div{
+  height: 515px;
+  width: 515px;
+  background-color: #fde047;
+  padding: 30px;
+}
+
+.post-ul{
+  margin-top: 40px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
 

@@ -38,7 +38,7 @@ exports.create_post_post = [
             });
         } else {
             await post.save();
-            res.redirect("/");
+            res.redirect("/posts");
         }
     })
 ]
@@ -66,7 +66,7 @@ exports.post_detail = asyncHandler(async(req, res, next) => {
 exports.post_list = asyncHandler(async(req, res, next) => {
     const allPosts = await Post.find({}, "title text").exec()
 
-    res.render("post-list", {title: "Post List", post_list: allPosts})
+    res.render("post-list", {post_list: allPosts})
 })
 
 exports.post_delete_get = asyncHandler(async(req, res, next) => {

@@ -1,26 +1,13 @@
 extends layout
 
 block content
-    if user 
-        div.home-body
-            div.home-content
-                h1(class="welcome-title") Welcome back: #{user.username}
-                div.home-buttons
-                    a(href="/posts") 
-                        button View all posts
-                    if (currentUser.status == "writer")
-                        a(href="/new-post") 
-                            button Create new post
-                    a(href="/log-out")
-                        button Log out
-    else
-        div.login-body
-            div.login-content
-                h1(class="login-title") Welcome to my blog
-                form(method='POST' action='/log-in' class='login-form')
-                    label(for='username') Username:
-                    input#username.form-control(type='text', placeholder='mrMario00' name='username' required='true' value=(undefined===user? '' : user.username))
-                    label(for='password') Password:
-                    input#password.form-control(type='password', placeholder='mario26!' name='password' required='true')
-                    button.btn.btn-primary(type='submit') Log in
-                a(href="/sign-up") If you don't already have an account, Sign up
+    div.login-body
+        div.login-content
+            h1(class="login-title") Welcome to my blog
+            form(method='POST' action='/log-in' class='login-form')
+                label(for='username') Username:
+                input#username.form-control(type='text', placeholder='mrMario00' name='username' required='true' value=(undefined===user? '' : user.username))
+                label(for='password') Password:
+                input#password.form-control(type='password', placeholder='mario26!' name='password' required='true')
+                button.btn.btn-primary(type='submit') Log in
+            a(href="/sign-up") If you don't already have an account, Sign up
