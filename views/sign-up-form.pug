@@ -7,13 +7,13 @@ block content
 
       form(method='POST' action='' class='signup-form')
         label(for='username') Username:
-        input#username.form-control(type='text', placeholder='mrMario00' name='username' required='true' value=(undefined===user? '' : user.username))
+        input#username.form-control(type='text', placeholder='mario' name='username' required='true' value=(undefined===user? '' : user.username))
         label(for='email') Email:
         input#email.form-control(type='email', placeholder='mario.rossi@mail.it' name='email' required='true' value=(undefined===user? '' : user.email))
         label(for='password') Password:
-        input#password.form-control(type='password', placeholder='mario26!' name='password' required='true')
+        input#password.form-control(type='password', placeholder='Pwd00' name='password' required='true')
         label(for='confirmPassword') Confirm password:
-        input#confirmPassword.form-control(type='password', placeholder='mario26!' name='confirmPassword' required='true')
+        input#confirmPassword.form-control(type='password', placeholder='Pwd00' name='confirmPassword' required='true')
         label(for='status') Status:
         select#status.form-control(type='select', placeholder='Select status' name='status' required='true' )
           option(value="writer") Writer

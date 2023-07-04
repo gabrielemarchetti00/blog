@@ -1,15 +1,12 @@
 extends layout
 
 block content
-    h1 #{title}: #{post.title}
+    .post-delete-content
+        h1 Do you really want to delete this Post? #{post.title}
 
-    p Do you really want to delete this Post?
+        form(method='POST' action='')
+            div.form-group
+            input#postid.form-control(type='hidden',name='postid', required='true', value=post._id )
 
-    form(method='POST' action='')
-        div.form-group
-        input#postid.form-control(type='hidden',name='postid', required='true', value=post._id )
-
-        button.btn.btn-primary(type='submit') Delete
-
-    a(href="/") Home
+            button.btn.btn-primary(type='submit' class="delete-btn") Delete
 

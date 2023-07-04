@@ -41,22 +41,7 @@ exports.create_comment_post = [
             });
         } else {
             await comment.save();
-            res.redirect("/posts");
+            res.redirect(`/post/${req.body.postid}`);
         }
     })
 ]
-
-exports.post_detail = asyncHandler(async(req, res, next) => {
-    const post = await Post.findById(req.params.id).exec()
-
-    if(post === null) {
-        const err = new Error("post not found")
-        err.status = 404
-        return next(err)
-    }
-
-    res.render("post-detail", {
-        title: "Post Detail",
-        post: post,
-    })
-})

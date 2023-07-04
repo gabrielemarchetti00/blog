@@ -1,19 +1,16 @@
 extends layout
 
 block content
-  h1= title
+  .comment-content
+    h1(class='comment-title')= title
 
-  form(method='POST' action='')
-    div.form-group
+    form(method='POST' action='' class='comment-form')
       label(for='text') Text:
-      input#text.form-control(type='textarea' name='text' value=(undefined===comment? '' : comment.text))
-    div.form-group
+      textarea#text.form-control(name="text", cols="30", rows="10", value=(undefined===comment? '' : comment.text)) 
       input#postid.form-control(type='hidden' name='postid' required='true' value=post._id )
-    button.btn.btn-primary(type='submit') Submit
+      button.btn.btn-primary(type='submit') Submit
 
-  if errors
-    ul
-      for error in errors
-        li!= error.msg
-
-  a(href="/") Home
+    if errors
+      ul
+        for error in errors
+          li!= error.msg

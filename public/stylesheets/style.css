@@ -87,8 +87,16 @@ select{
 .post-div a{
   text-decoration: none;
   color: black;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
+}
+
+.post-div a:hover{
+  color: #f97316;
+}
+
+.post-div {
+  font-size: 30px;
 }
 
 .home-buttons{
@@ -98,9 +106,9 @@ select{
 }
 
 .post-div{
-  height: 515px;
-  width: 515px;
-  background-color: #fde047;
+  height: 300px;
+  width: 300px;
+  border: 5px solid #f97316;
   padding: 30px;
 }
 
@@ -112,3 +120,74 @@ select{
   gap: 40px;
 }
 
+
+/*post form*/
+.postform-title{
+  font-size: 60px;
+}
+
+.post-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 30px;
+  width: 20%;
+}
+
+.postform-content{
+  margin-left: 60px;
+}
+
+textarea{
+  font-size: 20px;
+}
+
+/*post detail*/
+.post-title{
+  font-size: 60px;
+}
+
+.post-detail-content{
+  margin-left: 60px;
+  width: 50%;
+  font-size: 20px;
+}
+
+.post-text{
+  font-size: 30px;
+}
+
+.post-detail-content button{
+  width: 200px;
+}
+
+hr{
+  border-color: #f97316;
+}
+
+
+/*post-delete*/
+.post-delete-content{
+  margin: 60px;
+}
+
+.delete-btn{
+  width: 20%;
+}
+
+/*comment*/
+.comment-form{
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  gap: 10px;
+  font-size: 30px;
+  width: 20%;
+}
+
+.comment-content{
+  margin: 60px;
+}
+
+.comment-title{
+  font-size: 40px;
+}

@@ -45,8 +45,8 @@ exports.create_post_post = [
 
 exports.post_detail = asyncHandler(async(req, res, next) => {
     const [post, commentsOfPost] = await Promise.all([
-      Post.findById(req.params.id).exec(),
-      Comment.find( {post: req.params.id}, "text").exec()
+      Post.findById(req.params.id).populate('author').exec(),
+      Comment.find( {post: req.params.id}, "text author").populate("author").exec()
     ])
 
     if(post === null) {
@@ -64,7 +64,7 @@ exports.post_detail = asyncHandler(async(req, res, next) => {
 
 
 exports.post_list = asyncHandler(async(req, res, next) => {
-    const allPosts = await Post.find({}, "title text").exec()
+    const allPosts = await Post.find({}, "title text").populate("author").exec()
 
     res.render("post-list", {post_list: allPosts})
 })

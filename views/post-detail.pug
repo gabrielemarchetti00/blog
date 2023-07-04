@@ -1,28 +1,32 @@
 extends layout
 
 block content
+    .post-detail-body
+      .post-detail-content
+        h1(class='post-title') #{post.title}
+        p #{post.timestamp_formatted}
+        p #[strong Author:] #{post.author.username}
+        hr
+        .post-text
+          p #{post.text}
+        hr
+        h4 Comments:
+        ul
+          each comment in post_comments
+            li #{comment.text} - #{comment.author.username}
+          else
+            p This post has no comments
+        hr
+        if (currentUser.status == "writer")
+            p
+                a(href=post.url+'/delete') 
+                  button Delete post
+            p
+                a(href=post.url+'/update') 
+                  button Update post
+        else 
+            p
+                a(href=post.url+'/add-comment') 
+                  button Add comment 
 
-    h1 Post: #{post.title}
-    br
-    p #[strong Text:] #{post.text}
-    p #[strong Timestamp:] #{post.timestamp}
-    p #[strong Author] #{post.author}
-
-    h4 Comments
-    ul
-      each comment in post_comments
-        li #{comment.text}
-      else
-        p This post has no comments
-
-    hr
-    if (currentUser.status == "writer")
-        p
-            a(href=post.url+'/delete') Delete post
-        p
-            a(href=post.url+'/update') Update post
-    else 
-        p
-            a(href=post.url+'/add-comment') Add comment 
-
-    a(href="/") Home   
+        a(href="/posts") Home   
