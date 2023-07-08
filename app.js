@@ -15,13 +15,17 @@ const LocalStrategy = require("passport-local").Strategy;
 var app = express();
 
 // Set up mongoose connection
+require('dotenv').config();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = "mongodb+srv://gabrielemarchetti26:Charlie2606@cluster0.e7134st.mongodb.net/?retryWrites=true&w=majority";
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(mongoDB);
+  await mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(x => console.log(`Connected the Database: "${x.connections[0].name}"`))
+  .catch(err => console.error('Error connecting to mongo', err));
 }
 
 // view engine setup
